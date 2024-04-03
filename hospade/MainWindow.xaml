@@ -1,0 +1,45 @@
+﻿<Window x:Class="hospade.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:hospade"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <Label Content="Посещение стационара"></Label>
+
+        <StackPanel Orientation="Horizontal"  Margin="20" Grid.Row="0" >
+            <Button x:Name="excel" Content="Загрузить данные из Excel" Width="200" Height="50" Margin="5" Click="XlsButton_Click"/>
+            <Button x:Name="count" Content="Вычислить загрузку" Width="200" Margin="5"/>
+        </StackPanel>
+        
+        <DataGrid Grid.Row="1" x:Name="TablDataGrid" Width="600" SelectionChanged="TablDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Пациент"  Width="200"/>
+                <DataGridHyperlinkColumn Header="День приезда"  Width="200"/>
+                <DataGridTextColumn Header="День отьезда" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        
+        <StackPanel Orientation="Vertical" Grid.Row="2" Margin="20">
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="max" Content="Максимальная загрузка (чел):" Margin="5"  />
+                <Label x:Name="num"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal">
+                <Label x:Name="day" Content="Первый день с максимумом пациентов:" Margin="5"/>
+                <Label x:Name="daymax"/>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</Window>
